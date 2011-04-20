@@ -1,4 +1,8 @@
 Biomed::Application.routes.draw do
+  
+  match "login" => "session#login"
+  match "logout" => "session#logout"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
