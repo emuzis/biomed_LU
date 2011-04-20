@@ -20,14 +20,14 @@ class User
   attr_accessor :password, :password_confirmation
 
   def self.authenticate(login, pass)
-    u=find(:first, :conditions=>["login = ?", login])
+    u = where(:login => login).first
     return nil if u.nil?
-    return u if User.encrypt(pass, u.salt)==u.hashed_password
+    return u if User.encrypt(pass, u.salt) == u.hashed_password
     nil
   end  
 
   def password=(pass)
-    @password=pass
+    @password = pass
     self.salt = User.random_string(10) if !self.salt?
     self.hashed_password = User.encrypt(@password, self.salt)
   end

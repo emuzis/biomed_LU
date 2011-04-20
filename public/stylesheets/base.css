@@ -1,0 +1,55 @@
+body {
+  background-color: #556270;
+  display: block;
+}
+html, body, input, select, textarea, button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+#content {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+#login_form {
+  background: -webkit-gradient(linear,left top, left bottom, from(#FFF), to(#B0B0B0));
+  background: -moz-linear-gradient(top, #FFF, #B0B0B0);
+  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#FFFFFF", EndColorStr="#B0B0B0", GradientType=0);
+  width: 360px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  padding: 10px;
+  margin-left: 300px;
+  margin-top: 200px;
+  text-align: left;
+}
+label {
+  font-weight: bold;
+  width: 70px;
+  float: left;
+  padding: 10px;
+  line-height: 14px;
+  margin-top: -4px;
+}
+input.input_text {
+  width: 200px;
+  float: right;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: white;
+  border: solid 1px #A0A0A0;
+  color: #555;
+  padding: 5px;
+  font-size: 13px;
+}
+.clear {
+  clear: both;
+}
+.submit_button {
+  padding-top: 10px;
+}
+*+html .submit_button {
+  margin-bottom: -15px;
+}

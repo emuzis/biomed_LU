@@ -1,7 +1,10 @@
 Biomed::Application.routes.draw do
   
-  match "login" => "session#login"
-  match "logout" => "session#logout"
+  root :to => "sessions#new"
+
+  get  :login, :to => "sessions#new"
+  post :login, :to => "sessions#login"
+  get  :logout, :to => "sessions#destroy"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     end
     flash[:warning] = "Lūdzu autorizējaties, lai turpinātu!"
     session[:return_to] = request.request_uri
-    redirect_to :controller => "user", :action => "login"
+    redirect_to :controller => "sessions", :action => "new"
     return false 
   end
 
