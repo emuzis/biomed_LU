@@ -7,10 +7,9 @@ class SessionsController < ApplicationController
   
   def login
     if session[:user] = User.authenticate(params[:user][:login], params[:user][:password])
-      flash[:message]  = "Autorizācija veiksmīga!"
       redirect_to :action => session[:return_to]
     else
-      flash[:error] = "Autorizācija neveiksmīga!"
+      flash.now[:error] = "Nepareizs lietotājvārds vai parole!"
       render :action => "new"
     end
   end
