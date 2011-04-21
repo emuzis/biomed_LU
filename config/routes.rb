@@ -1,10 +1,13 @@
 Biomed::Application.routes.draw do
   
-  root :to => "sessions#new"
+  root :to => "specimens#index"
 
   get  :login, :to => "sessions#new"
   post :login, :to => "sessions#login"
-  get  :logout, :to => "sessions#destroy"
+  get  :logout, :to => "sessions#logout"
+  
+  resources :specimens
+  resources :configurations, :only => [:index]
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

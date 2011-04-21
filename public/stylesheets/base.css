@@ -11,6 +11,11 @@ html, body, input, select, textarea, button {
   margin: 0 auto;
   position: relative;
 }
+#main_body {
+  background-color: #fff;
+  margin-left: 1px;
+  border-radius: 8px 8px 8px 8px;
+}
 #login_form {
   background: -webkit-gradient(linear,left top, left bottom, from(#FFF), to(#909090));
   background: -moz-linear-gradient(top, #FFF, #909090);
@@ -23,6 +28,24 @@ html, body, input, select, textarea, button {
   margin-left: 300px;
   margin-top: 240px;
   text-align: left;
+}
+#tabs {
+  margin-top: 60px;
+}
+#tabs a.button {
+  font-weight: bold;
+  padding: 6px 25px;
+  font-size: 13px;
+  text-shadow: none;
+  margin: 0;
+}
+#logout_link {
+  float: right;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
 }
 label {
   font-weight: bold;
@@ -50,48 +73,16 @@ input.input_text {
 .submit_button {
   padding-top: 10px;
 }
-*+html .submit_button {
-  margin-bottom: -15px;
-}
 #flash_error {
   background-color: #C44D58;
   font-weight: bold;
   padding: 10px;
+  margin-bottom: 10px;
 }
 .submit_button {
   float: right;
 }
-.button {
-  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-  box-shadow:inset 0px 1px 0px 0px #ffffff;
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
-  background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-  background-color:#ededed;
-  -moz-border-radius:6px;
-  -webkit-border-radius:6px;
-  border-radius:6px;
-  border:1px solid #dcdcdc;
-  display:inline-block;
-  color:#777777;
-  font-family:arial;
-  font-size:12px;
-  font-weight:bold;
-  padding:5px 10px;
-  text-decoration:none;
-  text-shadow:1px 1px 0px #ffffff;
-}
-*+html .button {
-  padding:3px 6px;
-}
-.button:hover {
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
-  background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
-  background-color:#dfdfdf;
-}
-.button:active {
-  position:relative;
-  top:1px;
+input.button {
+  font-weight: bold;
+  font-size: 12px;
 }

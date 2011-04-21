@@ -2,13 +2,27 @@
 <html>
 <head>
   <title>BMC</title>
+  <%= css3buttons_stylesheets %>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
   <div id="content">
-    <%= yield %>
+    <% if current_user %>
+      <%= link_to "Iziet", logout_path, :id => "logout_link" %>
+      <div id="tabs" class="button-group">
+        <% [{:name => "Paraugi", :link => root_path, :controller => "specimens"},
+            {:name => "Konfigurācija", :link => configurations_path, :controller => "configurations"}].each do |h| %>
+          <%= link_to h[:name], h[:link], :class => "pill button #{"active" if controller_name == h[:controller]}" %>
+        <% end %>
+      </div>
+      <div id="main_body">
+        <%= yield %>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </div>
 </body>
 </html>
