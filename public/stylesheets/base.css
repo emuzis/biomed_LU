@@ -6,6 +6,41 @@ html, body, input, select, textarea, button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
+.pagination .previous_page, .pagination .next_page, .pagination em {
+  font-weight: bold;
+}
+a {
+  text-decoration:none;
+  color: #556270;
+}
+.pagination em {
+  color: #000;
+  font-style: normal;
+}
+.pagination a:hover {
+  background-color: #2A65A0;
+  color: #FFF;
+  font-weight: bold;
+}
+.pagination a, .pagination span, .pagination em {
+  padding: 2px 4px;
+  margin: 0;
+}
+.pagination .disabled {
+  display: none;
+}
+.pagination {
+  color: #556270;
+  font-size: 13px;
+  float: right;
+  clear: both;
+  margin-top: 8px;
+}
+h2 {
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 10px;
+}
 #content {
   width: 960px;
   margin: 0 auto;
@@ -13,8 +48,8 @@ html, body, input, select, textarea, button {
 }
 #main_body {
   background-color: #fff;
-  margin-left: 1px;
   border-radius: 8px 8px 8px 8px;
+  padding: 10px;
 }
 #login_form {
   background: -webkit-gradient(linear,left top, left bottom, from(#FFF), to(#909090));
@@ -30,7 +65,7 @@ html, body, input, select, textarea, button {
   text-align: left;
 }
 #tabs {
-  margin-top: 40px;
+  margin-top: 10px;
 }
 #tabs a.button {
   font-weight: bold;
@@ -42,6 +77,7 @@ html, body, input, select, textarea, button {
 #logout_link {
   float: right;
   margin-top: 10px;
+  margin-right: 6px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
@@ -85,4 +121,29 @@ input.input_text {
 input.button {
   font-weight: bold;
   font-size: 12px;
+}
+.right {
+  float: right;
+  display: block;
+}
+#index_page {
+  clear: both;
+  overflow: hidden;
+}
+#tabs.button-group a.button {
+  width: 170px;
+  text-align: center;
+  padding: 6px 10px;
+}
+.index_table {
+  margin-top: 10px;
+  width: 100%;
+}
+.index_table th {
+  background-color: #ECECEC;
+  padding: 5px;
+  font-weight: bold;
+}
+.index_table th, .index_table td {
+  border: 1px solid #D4D4D4;
 }

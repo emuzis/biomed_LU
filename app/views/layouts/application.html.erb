@@ -11,18 +11,20 @@
   <div id="content">
     <% if current_user %>
       <%= link_to "Iziet", logout_path, :id => "logout_link" %>
+      <br class="clear"/>
       <div id="tabs" class="button-group">
         <% [{:name => "Paraugi", :link => root_path, :controller => "specimens"},
-            {:name => "Konfigurācija", :link => configurations_path, :controller => "configurations"}].each do |h| %>
+            {:name => "Personas", :link => "#"},
+            {:name => "Paraugu datu konfigurācija", :link => "#"},
+            {:name => "Personu datu konfigurācija", :link => "#"},
+            {:name => "Vērtību saraksti", :link => lovs_path, :controller => "lovs"}].each do |h| %>
           <%= link_to h[:name], h[:link], :class => "pill button #{"active" if controller_name == h[:controller]}" %>
         <% end %>
       </div>
-      <div id="main_body">
-        <%= yield %>
-      </div>
-    <% else %>
-      <%= yield %>
     <% end %>
+    <div id="<%= current_user ? "main_body" : "login_page" %>">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>

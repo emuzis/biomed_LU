@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   
+  skip_before_filter :login_required
+  
   def new
-    redirect_to(session[:return_to] || root_path) if session[:user]
+    redirect_to root_path if session[:user]
   end
   
   def login
@@ -15,6 +17,7 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user] = nil
+    session[:return_to] = nil
     redirect_to :action => "login"
   end
     

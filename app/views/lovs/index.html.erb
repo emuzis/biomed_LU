@@ -1,0 +1,23 @@
+<div id="index_page">
+  <%= link_to "Pievienot jaunu", { :action => :new }, :class => "button icon add right" %>
+  <h2>Vērtību saraksti</h2>
+  <% unless @lovs.empty? %>
+    <table class="index_table">
+      <thead>
+        <th>Vārds</th>
+        <th>Vērtības</th>
+        <th class="actions">&nbsp;</th>
+      </thead>
+        <% @lovs.each do |o| %>
+          <tr>
+            <td><%= o.name %></td>
+            <td><%= o.values.join(", ") %></td>
+            <td>&nbsp;</td>
+          </tr>
+        <% end %>
+      <tbody>
+      </tbody>
+    </table>
+  <% end %>
+  <%= will_paginate(@lovs, Biomed::Application::PAGINATION_DISPLAY_OPTIONS) %>
+</div>

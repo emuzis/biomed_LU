@@ -96,3 +96,4 @@ DEPENDENCIES
   mongoid (~> 2.0)
   mongrel
   rails (= 3.0.7)
+  will_paginate
