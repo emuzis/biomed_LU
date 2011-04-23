@@ -1,10 +1,11 @@
 <div id="index_page">
-  <%= link_to "Pievienot jaunu", { :action => :new }, :class => "button icon add right" %>
+  <%= link_to "Pievienot jaunu", { :action => :new }, :class => "button icon add positive right" %>
   <h2>Vērtību saraksti</h2>
+  <%= render_flash_messages %>
   <% unless @lovs.empty? %>
     <table class="index_table">
       <thead>
-        <th>Vārds</th>
+        <th>Nosaukums</th>
         <th>Vērtības</th>
         <th class="actions">&nbsp;</th>
       </thead>
@@ -12,7 +13,7 @@
           <tr>
             <td><%= o.name %></td>
             <td><%= o.values.join(", ") %></td>
-            <td>&nbsp;</td>
+            <td><%= link_to "Dzēst", { :action => :destroy, :id => o.id}, :method => :delete, :class => "danger icon trash button", :confirm => "Vai esat pārliecināts?" %></td>
           </tr>
         <% end %>
       <tbody>

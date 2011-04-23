@@ -18,7 +18,7 @@ a {
   font-style: normal;
 }
 .pagination a:hover {
-  background-color: #2A65A0;
+  background-color: #3884CF;
   color: #FFF;
   font-weight: bold;
 }
@@ -31,15 +31,14 @@ a {
 }
 .pagination {
   color: #556270;
-  font-size: 13px;
   float: right;
   clear: both;
-  margin-top: 8px;
 }
 h2 {
   font-weight: bold;
   font-size: 16px;
   margin-left: 10px;
+  margin-bottom: 10px;
 }
 #content {
   width: 960px;
@@ -109,10 +108,15 @@ input.input_text {
 .submit_button {
   padding-top: 10px;
 }
+#flash_info {
+  background-color: #C7F464;
+}
 #flash_error {
   background-color: #C44D58;
+}
+.flash {
   font-weight: bold;
-  padding: 10px;
+  padding: 7px;
   margin-bottom: 10px;
 }
 .submit_button {
@@ -136,14 +140,32 @@ input.button {
   padding: 6px 10px;
 }
 .index_table {
-  margin-top: 10px;
+  margin-bottom: 10px;
   width: 100%;
+  border-collapse: collapse;
 }
 .index_table th {
   background-color: #ECECEC;
   padding: 5px;
   font-weight: bold;
 }
+.index_table td {
+  padding: 3px 6px;
+}
+.index_table tr:hover {
+  background-color: #3884CF;
+}
+.index_table tr:hover td {
+  font-weight: bold;
+  color: #FFF;
+  cursor: pointer;
+}
 .index_table th, .index_table td {
   border: 1px solid #D4D4D4;
+}
+.index_table th.actions {
+  width: 70px;
+}
+#footer {
+  margin: 20px 0;
 }

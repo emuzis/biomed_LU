@@ -236,7 +236,6 @@ Licensed under Unlicense
 .button.user.icon:focus:before,
 .button.user.icon:active:before { background-position: -12px -360px; }
 
-
 /* ------------------------------------------------------------------------------------------------------------- BUTTON EXTENSIONS */
 
 /* ............................................................................................................. Primary */
@@ -248,7 +247,7 @@ Licensed under Unlicense
 /* ............................................................................................................. Danger */
 
 .button.danger {
-    color: #900;
+  padding: 0.2em 1em;
 }
 
 .button.danger:hover,
@@ -273,6 +272,18 @@ Licensed under Unlicense
     background-image: -moz-linear-gradient(#b33630, #dc5f59);
     background-image: -o-linear-gradient(#b33630, #dc5f59);
     background-image: linear-gradient(#b33630, #dc5f59);
+}
+
+.button.positive:hover,
+.button.positive:focus,
+.button.positive:active {
+  border-color: #5FB404;
+  border-bottom-color: #088A08;
+  background-color: #5FB404;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5FB404), to(#088A08));
+  background-image: -moz-linear-gradient(#5FB404, #088A08);
+  background-image: -o-linear-gradient(#5FB404, #088A08);
+  background-image: linear-gradient(#5FB404, #088A08);
 }
 
 /* ............................................................................................................. Pill */
