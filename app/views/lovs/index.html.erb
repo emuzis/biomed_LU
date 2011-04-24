@@ -5,8 +5,8 @@
   <% unless @lovs.empty? %>
     <table class="index_table">
       <thead>
-        <th>Nosaukums</th>
-        <th>Vērtības</th>
+        <th><%= sortable "Nosaukums", "name" %></th>
+        <th><%= sortable "Vērtības", "values" %></th>
         <th class="actions">&nbsp;</th>
       </thead>
         <% @lovs.each do |o| %>

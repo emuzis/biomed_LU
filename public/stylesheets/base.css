@@ -13,6 +13,19 @@ a {
   text-decoration:none;
   color: #556270;
 }
+th a {
+  color: #000;
+  padding-left: 6px;
+  padding-left: 18px;
+  margin-left: -6px;
+  background: url("/images/bg.gif") left center no-repeat;
+}
+th a.asc {
+  background: url("/images/asc.gif") left center no-repeat;
+}
+th a.desc {
+  background: url("/images/desc.gif") left center no-repeat;
+}
 .pagination em {
   color: #000;
   font-style: normal;
