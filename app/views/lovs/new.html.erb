@@ -1,0 +1,17 @@
+<h2>Vērtību saraksts</h2>
+<%= render_flash_messages %>
+<%= form_for @lov do |f| %>
+  <%= custom_error_messages_for([f.object]) %>
+  <div class="form_field">
+    <%= f.label :name, "Nosaukums" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form_field">
+    <%= f.label :values, "Vērtības" %>
+    <%= f.text_field :values, :class => "has_qtip", :qtext => "Vērtības atdalīt ar komatiem", :value => f.object.values.try(:join,",") %>
+  </div>
+  <div class="form_actions">
+    <%= f.submit "Sablagāt", :class => "button" %>
+    <%= link_to "Atpakaļ", lovs_path, :class => "button" %>
+  </div>
+<% end %>

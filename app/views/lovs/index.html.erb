@@ -2,11 +2,17 @@
   <%= link_to "Pievienot jaunu", { :action => :new }, :class => "button icon add positive right" %>
   <h2>Vērtību saraksti</h2>
   <%= render_flash_messages %>
+  <div id="search_box">
+    <%= form_tag("/#{controller_name}/search") do %>
+      <%= text_field_tag "search", params[:search], :class => "search_field" %>
+      <%= link_to "Meklēt", "#", :class => "button icon search submit" %>
+    <% end %>
+  </div>
   <% unless @lovs.empty? %>
     <table class="index_table">
       <thead>
-        <th><%= sortable "Nosaukums", "name" %></th>
-        <th><%= sortable "Vērtības", "values" %></th>
+        <th><%= sortable "Nosaukums", "name", controller_name, params %></th>
+        <th><%= sortable "Vērtības", "values", controller_name, params %></th>
         <th class="actions">&nbsp;</th>
       </thead>
         <% @lovs.each do |o| %>
@@ -20,5 +26,6 @@
       </tbody>
     </table>
   <% end %>
-  <%= will_paginate(@lovs, Biomed::Application::PAGINATION_DISPLAY_OPTIONS) %>
+  <%= will_paginate(@lovs, Biomed::Application::PAGINATION_DISPLAY_OPTIONS.merge(
+    {:params => { :action => :index, :search => params[:search] }})) %>
 </div>

@@ -7,7 +7,11 @@ Biomed::Application.routes.draw do
   get  :logout, :to => "sessions#logout"
   
   resources :specimens
-  resources :lovs
+  resources :lovs do
+    collection do 
+      match :search
+    end
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

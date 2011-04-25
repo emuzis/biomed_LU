@@ -1,0 +1,15 @@
+lv:
+  mongoid:
+    errors:
+      format: "%{attribute} %{message}"
+      messages: &errors_messages
+          empty: "nedrīkst būt tukšs/-i"
+          blank: "nedrīkst būt tukšs/-i"
+    attributes:
+      lov:
+        name: "Nosaukums"
+        values: "Vērtības"
+
+  support:
+    array:
+      two_words_connector: " un "
