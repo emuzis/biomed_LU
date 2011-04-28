@@ -6,8 +6,13 @@ Biomed::Application.routes.draw do
   post :login, :to => "sessions#login"
   get  :logout, :to => "sessions#logout"
   
-  resources :specimens
-  resources :lovs do
+  resources :people_attribute_groups, :except => [:show] do
+    collection do 
+      match :search
+    end
+  end
+  resources :specimens, :except => [:show]
+  resources :lovs, :except => [:show] do
     collection do 
       match :search
     end

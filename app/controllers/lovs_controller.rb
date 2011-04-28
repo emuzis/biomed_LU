@@ -18,6 +18,16 @@ class LovsController < ApplicationController
     end
   end
   
+  def update
+    @lov = Lov.find(params[:id])
+    if @lov.update_attributes(params[:lov])
+      flash[:info] = "Ieraksts veiksmīgi saglabāts"
+      redirect_to :action => :edit, :id => @lov.id
+    else
+      render :action => :new
+    end
+  end
+  
   def edit
     @lov = Lov.find(params[:id])
     render :action => :new

@@ -1,0 +1,10 @@
+<%= fields_for "people_attribute_group[people_attributes_attributes][#{attribute.id||timestamp}]", attribute do |ff| %>
+  <div class="form_field">
+    <%= ff.label :name, "Vērtības nosaukums<span class='required'>*</span>".html_safe %>
+    <%= ff.text_field :name %>
+  </div>
+  <div class="form_field">
+    <%= ff.label :data_type, "Datu tips<span class='required'>*</span>".html_safe %>
+    <%= ff.text_field :date_type %>
+  </div>
+<% end %>

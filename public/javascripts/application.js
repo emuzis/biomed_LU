@@ -1,6 +1,8 @@
 $(document).ready(function(){
   submit_link_handler.call(this);
   qtip_handler.call(this);
+  show_action_handler.call(this);
+  add_people_attribute_handler.call(this);
 });
 
 function submit_link_handler(){
@@ -8,6 +10,14 @@ function submit_link_handler(){
     $(this).parent().submit();
     return false;
   })
+}
+
+function show_action_handler(){
+  $("table.index_table tbody tr").live("click",function(){
+    var controller = $(this).attr("controller");
+    var id = $(this).attr("o_id");
+    window.location = "/"+controller+"/"+id+"/edit";
+  });
 }
 
 function qtip_handler(){
@@ -39,4 +49,10 @@ function qtip_handler(){
       }
     })
   });
+}
+
+function add_people_attribute_handler(){
+  $(".add_new_people_attribute").live("click",function(){
+    alert("yo");
+  })
 }

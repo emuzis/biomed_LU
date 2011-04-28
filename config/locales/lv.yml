@@ -5,10 +5,13 @@ lv:
       messages: &errors_messages
           empty: "nedrīkst būt tukšs/-i"
           blank: "nedrīkst būt tukšs/-i"
+          taken: "nedrīkst atkārtoties"
     attributes:
       lov:
         name: "Nosaukums"
         values: "Vērtības"
+      people_attribute_group:
+        name: "Nosaukums"
 
   support:
     array:

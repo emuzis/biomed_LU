@@ -35,6 +35,10 @@ module ApplicationHelper
     end
   end
   
+  def timestamp
+    Time.now.to_f.to_s.gsub('.','')
+  end
+  
   private
   
   def sort_direction(current)

@@ -1,6 +1,6 @@
-<h2>Vērtību saraksts</h2>
+<h2>Datu grupa</h2>
 <%= render_flash_messages %>
-<%= form_for @lov do |f| %>
+<%= form_for @group do |f| %>
   <% unless f.object.errors.empty? %>
     <div class="errors">
       <%= custom_error_messages_for([f.object]) %>
@@ -10,12 +10,12 @@
     <%= f.label :name, "Nosaukums<span class='required'>*</span>".html_safe %>
     <%= f.text_field :name %>
   </div>
-  <div class="form_field">
-    <%= f.label :values, "Vērtības<span class='required'>*</span>".html_safe %>
-    <%= f.text_field :values, :class => "has_qtip", :qtext => "Vērtības atdalīt ar komatiem", :value => f.object.values.try(:join,",") %>
-  </div>
+  <% @group.people_attributes.each do |o| %>
+    <%= render :partial => "/people_attributes/people_attribute", :locals => { :attribute => o } %>
+  <% end %>
+  <%= link_to "Pievienot jaunu vērtību", "#", :class => "button pill add_new_people_attribute"%>
   <div class="form_actions">
     <%= f.submit "Sablagāt", :class => "button" %>
-    <%= link_to "Atpakaļ", lovs_path, :class => "button" %>
+    <%= link_to "Atpakaļ", people_attribute_groups_path, :class => "button" %>
   </div>
 <% end %>

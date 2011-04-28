@@ -17,7 +17,7 @@
         <% [{:name => "Paraugi", :link => root_path, :controller => "specimens"},
             {:name => "Personas", :link => "#"},
             {:name => "Paraugu datu konfigurācija", :link => "#"},
-            {:name => "Personu datu konfigurācija", :link => "#"},
+            {:name => "Personu datu konfigurācija", :link => people_attribute_groups_path, :controller => "people_attribute_groups"},
             {:name => "Vērtību saraksti", :link => lovs_path, :controller => "lovs"}].each do |h| %>
           <%= link_to h[:name], h[:link], :class => "pill button #{"active" if controller_name == h[:controller]}" %>
         <% end %>
