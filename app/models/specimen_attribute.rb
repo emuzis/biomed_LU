@@ -1,4 +1,4 @@
-class PeopleAttribute
+class SpecimenAttribute
   include Mongoid::Document
   include Mongoid::Timestamps
   field :name,           :type => String
@@ -7,7 +7,7 @@ class PeopleAttribute
   field :lov_id,         :type => Integer
   
   belongs_to :lov
-  embedded_in :people_attribute_group
+  embedded_in :specimen_attribute_group
   
   DATA_TYPES = [
     { :value => "string",  :text => "Teksts",   :method => :value_string },

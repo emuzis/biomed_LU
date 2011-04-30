@@ -1,15 +1,15 @@
-class PeopleAttributeGroupsController < ApplicationController
+class SpecimenAttributeGroupsController < ApplicationController
   
   def index
     prepare_collection
   end
   
   def new
-    @group = PeopleAttributeGroup.new
+    @group = SpecimenAttributeGroup.new
   end
   
   def create
-    @group = PeopleAttributeGroup.create(params[:people_attribute_group])
+    @group = SpecimenAttributeGroup.create(params[:specimen_attribute_group])
     if @group.save
       flash[:info] = "Ieraksts veiksmīgi saglabāts"
       redirect_to :action => :edit, :id => @group.id
@@ -19,8 +19,8 @@ class PeopleAttributeGroupsController < ApplicationController
   end
   
   def update
-    @group = PeopleAttributeGroup.find(params[:id])
-    if @group.update_attributes(params[:people_attribute_group])
+    @group = SpecimenAttributeGroup.find(params[:id])
+    if @group.update_attributes(params[:specimen_attribute_group])
       flash[:info] = "Ieraksts veiksmīgi saglabāts"
       redirect_to :action => :edit, :id => @group.id
     else
@@ -29,12 +29,12 @@ class PeopleAttributeGroupsController < ApplicationController
   end
   
   def edit
-    @group = PeopleAttributeGroup.find(params[:id])
+    @group = SpecimenAttributeGroup.find(params[:id])
     render :action => :new
   end
   
   def destroy
-    group = PeopleAttributeGroup.find(params[:id]).destroy
+    group = SpecimenAttributeGroup.find(params[:id]).destroy
     flash[:info] = "Ieraksts veiksmīgi dzēsts"
     redirect_to :action => :index
   end
@@ -45,14 +45,14 @@ class PeopleAttributeGroupsController < ApplicationController
   end
   
   def new_attribute
-    people_attribute = PeopleAttribute.new(:data_type => "string", :order => Time.now.to_i)
-    render :partial => "people_attribute", :object => people_attribute
+    specimen_attribute = SpecimenAttribute.new(:data_type => "string", :order => Time.now.to_i)
+    render :partial => "specimen_attribute", :object => specimen_attribute
   end
   
   private
   
   def prepare_collection
-    @groups = PeopleAttributeGroup.search(params[:search]).order_by(params[:sort]).paginate(:page => params[:page],
+    @groups = SpecimenAttributeGroup.search(params[:search]).order_by(params[:sort]).paginate(:page => params[:page],
     :per_page => Biomed::Application::PAGINATION_PAGE_SIZE)
     flash.now[:error] = "Netika atrasts neviens ieraksts" if @groups.empty?
   end

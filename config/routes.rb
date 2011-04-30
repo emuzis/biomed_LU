@@ -9,6 +9,13 @@ Biomed::Application.routes.draw do
   resources :people_attribute_groups, :except => [:show] do
     collection do 
       match :search
+      get   :new_attribute
+    end
+  end
+  resources :specimen_attribute_groups, :except => [:show] do
+    collection do 
+      match :search
+      get   :new_attribute
     end
   end
   resources :specimens, :except => [:show]

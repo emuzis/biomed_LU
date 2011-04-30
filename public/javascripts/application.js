@@ -3,6 +3,17 @@ $(document).ready(function(){
   qtip_handler.call(this);
   show_action_handler.call(this);
   add_people_attribute_handler.call(this);
+  data_type_handler.call(this);
+  remove_children_handler.call(this);
+  
+  $("#sortable").sortable({
+    update : function () {
+      $(".form_field").each(function(index){
+        $(this).find(".order").val(index);
+      });
+    }
+  });
+  $("#sortable").disableSelection();
 });
 
 function submit_link_handler(){
@@ -52,7 +63,37 @@ function qtip_handler(){
 }
 
 function add_people_attribute_handler(){
-  $(".add_new_people_attribute").live("click",function(){
-    alert("yo");
+  $(".add_new_attribute").live("click",function(){
+    var controller = $(this).attr("controller");
+    $.ajax({
+      url: "/"+controller+"/new_attribute",
+      data: {},
+      type: "GET",
+      success: function(data) {
+        $(".attribute_groups").append(data);
+      }
+    });
+    return false;
+  })
+}
+
+function data_type_handler(){
+  $(".lov_list").live("change",function(){
+    if ($(this).val() != "") {
+      $(this).parent().find("input[name$='[data_type]']").attr("checked", false);
+    }
+    return false;
+  });
+  $("input[name$='[data_type]']").live("click",function(){
+    $(this).parent().find("select.lov_list").val("");
+  });
+}
+
+function remove_children_handler(){
+  $("a.remove_record").live("click",function(){
+    var parent = $(this).parent();
+    parent.find(".destroy_flag").val(1);
+    parent.hide();
+    return false;
   })
 }

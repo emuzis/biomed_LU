@@ -234,7 +234,15 @@ span.required {
   line-height: 1;
   padding-left: 5px;
 }
-.add_new_people_attribute {
+.add_new_attribute {
   margin-top: 15px;
   padding: 0.2em 1em;
-} 
+}
+.attribute_name {
+  width: 100px;
+  margin-right: 10px;
+  margin-left: 2px;
+}
+.remove_record {
+  margin-left: 5px;
+}

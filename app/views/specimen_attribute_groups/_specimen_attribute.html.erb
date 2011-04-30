@@ -1,0 +1,16 @@
+<%= fields_for "specimen_attribute_group[specimen_attributes_attributes][#{specimen_attribute.id||timestamp}]", specimen_attribute do |ff| %>
+  <div class="form_field">
+    <%= ff.hidden_field :id unless specimen_attribute.new_record? %>
+    <%= ff.label :name, "Atribūts<span class='required'>*</span>".html_safe %>
+    <%= ff.text_field :name, :class => "attribute_name" %>
+    <%= ff.hidden_field :order, :class => "order" %>
+    <% SpecimenAttribute::DATA_TYPES.each do |d| %>
+      <%= d[:text] %>
+      <%= ff.radio_button :data_type, d[:value] %>
+    <% end %>
+    <%= ff.hidden_field :_destroy, :class => "destroy_flag" %>
+    Vērtību saraksts:
+    <%= ff.select :lov_id, Lov.all.map{|l|[l.name,l.id]}, {:include_blank => true}, :class => "lov_list" %>
+    <%= link_to "Dzēst", "#", :class => "button icon remove danger remove_record" %>
+  </div>
+<% end %>
