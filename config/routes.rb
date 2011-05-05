@@ -18,6 +18,12 @@ Biomed::Application.routes.draw do
       get   :new_attribute
     end
   end
+  resources :people, :except => [:show] do
+    collection do 
+      match :search
+      get   :new_group
+    end
+  end
   resources :specimens, :except => [:show]
   resources :lovs, :except => [:show] do
     collection do 

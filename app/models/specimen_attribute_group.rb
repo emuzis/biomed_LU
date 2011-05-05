@@ -3,7 +3,7 @@ class SpecimenAttributeGroup
   include Mongoid::Timestamps
   include Mongoid::Search
   
-  field :name, :type => String
+  field :name
   
   embeds_many :specimen_attributes, :dependent => :destroy
   accepts_nested_attributes_for :specimen_attributes, :reject_if => lambda {|a| a[:name].blank? }, :allow_destroy => true

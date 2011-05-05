@@ -1,10 +1,10 @@
 class PeopleAttribute
   include Mongoid::Document
   include Mongoid::Timestamps
-  field :name,           :type => String
-  field :data_type,      :type => String
-  field :order,          :type => Integer
-  field :lov_id,         :type => Integer
+  field :name
+  field :data_type
+  field :order
+  field :lov_id
   
   belongs_to :lov
   embedded_in :people_attribute_group
@@ -17,18 +17,11 @@ class PeopleAttribute
   ]
   
   before_save :remove_data_type
-
-  # def value
-  #   method = DATA_TYPES.find{|v| v[:name] == data_type }[:method]
-  #   people_attribute_value.try(method)
-  # end
   
   private
   
   def remove_data_type
-    unless lov_id.blank?
-      self.data_type = nil
-    end
+    self.data_type = nil unless lov_id.blank?
   end
   
 end

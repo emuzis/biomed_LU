@@ -1,0 +1,12 @@
+<%= fields_for "person[used_people_attribute_groups_attributes][#{used_people_attribute_group.id||timestamp}]",
+  used_people_attribute_group do |ff| %>
+  <div class="form_field">
+    <%= ff.hidden_field :id unless used_people_attribute_group.new_record? %>
+    <%= ff.hidden_field :people_attribute_group_id %>
+    <%= ff.hidden_field :_destroy, :class => "destroy_flag" %>
+    <%= ff.hidden_field :order, :class => "order" %>
+    <%= ff.label :alternate_name, "Grupas nosaukums<span class='required'>*</span>".html_safe %>
+    <%= ff.text_field :alternate_name %>
+    <%= link_to "Dzēst", "#", :class => "button icon remove danger remove_record" %>
+  </div>
+<% end %>

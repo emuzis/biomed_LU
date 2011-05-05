@@ -12,7 +12,7 @@
   </div>
   <div class="form_field">
     <%= f.label :values, "Vērtības<span class='required'>*</span>".html_safe %>
-    <%= f.text_field :values, :class => "has_qtip", :qtext => "Vērtības atdalīt ar komatiem", :value => f.object.values.try(:join,",") %>
+    <%= f.text_field :values, :class => "has_qtip", :qtext => "Vērtības atdalīt ar komatiem" %>
   </div>
   <div class="form_actions">
     <%= f.submit "Sablagāt", :class => "button" %>

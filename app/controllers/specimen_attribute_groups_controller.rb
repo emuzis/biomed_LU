@@ -34,7 +34,7 @@ class SpecimenAttributeGroupsController < ApplicationController
   end
   
   def destroy
-    group = SpecimenAttributeGroup.find(params[:id]).destroy
+    SpecimenAttributeGroup.find(params[:id]).destroy
     flash[:info] = "Ieraksts veiksmīgi dzēsts"
     redirect_to :action => :index
   end

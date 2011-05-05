@@ -5,6 +5,7 @@ $(document).ready(function(){
   add_people_attribute_handler.call(this);
   data_type_handler.call(this);
   remove_children_handler.call(this);
+  add_new_group_handler.call(this);
   
   $("#sortable").sortable({
     update : function () {
@@ -74,7 +75,7 @@ function add_people_attribute_handler(){
       }
     });
     return false;
-  })
+  });
 }
 
 function data_type_handler(){
@@ -96,4 +97,23 @@ function remove_children_handler(){
     parent.hide();
     return false;
   })
+}
+
+function add_new_group_handler(){
+  $(".add_new_group").live("click",function(){
+    var id = $("#data_groups").val();
+    if (id != "") {
+      var controller = $(this).attr("controller");
+      $.ajax({
+        url: "/"+controller+"/new_group",
+        data: {id:id},
+        type: "GET",
+        success: function(data) {
+          $(".attribute_groups").append(data);
+          $("#data_groups").val("");
+        }
+      });
+    }
+    return false;
+  });
 }

@@ -97,7 +97,7 @@ h2 {
 }
 label {
   font-weight: bold;
-  width: 70px;
+  width: 120px;
   float: left;
   padding: 10px;
   line-height: 14px;
@@ -216,11 +216,11 @@ div.form_field input {
   height: 12px;
 }
 div.form_field label {
-  padding: 9px;
+  padding: 7px;
   padding-right: 15px;
 }
 .form_actions {
-  margin: 20px 0 5px 106px;
+  margin: 25px 0 15px 30px;
 }
 .errors ul {
   list-style: none;
@@ -238,6 +238,10 @@ span.required {
   margin-top: 15px;
   padding: 0.2em 1em;
 }
+.add_new_group {
+  margin-left: 15px;
+  padding: 0.2em 1em;
+}
 .attribute_name {
   width: 100px;
   margin-right: 10px;
@@ -245,4 +249,7 @@ span.required {
 }
 .remove_record {
   margin-left: 5px;
+}
+input.date {
+  width: 70px;
 }

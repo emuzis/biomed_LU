@@ -1,6 +1,6 @@
 <div id="index_page">
   <%= link_to "Pievienot jaunu", { :action => :new }, :class => "button icon add positive right" %>
-  <h2>Vērtību saraksti</h2>
+  <h2>Personas</h2>
   <%= render_flash_messages %>
   <div id="search_box">
     <%= form_tag("/#{controller_name}/search") do %>
@@ -8,17 +8,17 @@
       <%= link_to "Meklēt", "#", :class => "button icon search submit" %>
     <% end %>
   </div>
-  <% unless @lovs.empty? %>
+  <% unless @people.empty? %>
     <table class="index_table">
       <thead>
-        <th><%= sortable "Nosaukums", "name", controller_name, params %></th>
-        <th><%= sortable "Vērtības", "values", controller_name, params %></th>
+        <th><%= sortable "Vārds", "first_name", controller_name, params %></th>
+        <th><%= sortable "Uzvārds", "last_name", controller_name, params %></th>
         <th class="actions">&nbsp;</th>
       </thead>
-        <% @lovs.each do |o| %>
+        <% @people.each do |o| %>
           <tr controller="<%= controller_name %>" o_id="<%= o.id %>">
-            <td><%= o.name %></td>
-            <td><%= o.values %></td>
+            <td><%= o.first_name %></td>
+            <td><%= o.last_name %></td>
             <td><%= link_to "Dzēst", { :action => :destroy, :id => o.id}, :method => :delete, :class => "danger icon trash button", :confirm => "Vai esat pārliecināts?" %></td>
           </tr>
         <% end %>
@@ -26,6 +26,6 @@
       </tbody>
     </table>
   <% end %>
-  <%= will_paginate(@lovs, Biomed::Application::PAGINATION_DISPLAY_OPTIONS.merge(
+  <%= will_paginate(@people, Biomed::Application::PAGINATION_DISPLAY_OPTIONS.merge(
     {:params => { :action => :index, :search => params[:search] }})) %>
 </div>

@@ -3,7 +3,9 @@ class PeopleAttributeGroup
   include Mongoid::Timestamps
   include Mongoid::Search
   
-  field :name, :type => String
+  default_scope :order => "name asc"
+  
+  field :name
   
   embeds_many :people_attributes, :dependent => :destroy
   accepts_nested_attributes_for :people_attributes, :reject_if => lambda {|a| a[:name].blank? }, :allow_destroy => true

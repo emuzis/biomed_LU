@@ -34,7 +34,7 @@ class PeopleAttributeGroupsController < ApplicationController
   end
   
   def destroy
-    group = PeopleAttributeGroup.find(params[:id]).destroy
+    PeopleAttributeGroup.find(params[:id]).destroy
     flash[:info] = "Ieraksts veiksmīgi dzēsts"
     redirect_to :action => :index
   end

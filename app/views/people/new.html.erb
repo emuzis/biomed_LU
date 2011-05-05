@@ -1,0 +1,56 @@
+<% groups = PeopleAttributeGroup.order_by(["name","asc"]).map{|g|[g.name,g.id]}.insert(0,[nil,nil]) %>
+<h2>Persona</h2>
+<%= render_flash_messages %>
+<%= form_for @person do |f| %>
+  <% unless f.object.errors.empty? %>
+    <div class="errors">
+      <%= custom_error_messages_for([f.object]) %>
+    </div>
+  <% end %>
+  <div class="form_field">
+    <%= f.label :first_name, "Vārds<span class='required'>*</span>".html_safe %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="form_field">
+    <%= f.label :last_name, "Uzvārds<span class='required'>*</span>".html_safe %>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="form_field">
+    <%= f.label :social_number, "Personas kods<span class='required'>*</span>".html_safe %>
+    <%= f.text_field :social_number %>
+  </div>
+  <div class="form_field">
+    <%= f.label :date_of_birth, "Dzimšanas datums<span class='required'>*</span>".html_safe %>
+    <%= f.text_field :date_of_birth, :class => "date has_qtip", :qtext => "Formāts: DD.MM.GGGG" %>
+  </div>
+  <div class="form_field">
+    <%= f.label :diagnosed_at, "Diagnoze uzstādīta" %>
+    <%= f.text_field :diagnosed_at, :class => "date has_qtip", :qtext => "Formāts: DD.MM.GGGG" %>
+  </div>
+  <div class="form_field">
+    <%= f.label :age_at_diagnosis, "Vecums uzstādot diagnozi" %>
+    <%= f.text_field :age_at_diagnosis, :class => "date" %>
+  </div>
+  <div class="form_field">
+    <%= f.label :alive_flag, "Miris" %>
+    <%= f.check_box :alive_flag %>
+  </div>
+  <div class="form_field">
+    <%= f.label :control_flag, "Kontrole" %>
+    <%= f.check_box :control_flag %>
+  </div>
+  <div class="attribute_groups" id="sortable">
+    <% @person.ordered_attribute_groups.each do |o| %>
+      <%= render :partial => "used_people_attribute_group", :object => o %>
+    <% end %>
+  </div>
+  <div class="form_field">
+    <%= label_tag :data_groups, "Datu grupas" %>
+    <%= select_tag :data_groups, options_for_select(groups) %>
+    <%= link_to "Pievienot", "#", :class => "button pill add_new_group", :controller => controller_name %>
+  </div>
+  <div class="form_actions">
+    <%= f.submit "Sablagāt", :class => "button" %>
+    <%= link_to "Atpakaļ", people_path, :class => "button" %>
+  </div>
+<% end %>

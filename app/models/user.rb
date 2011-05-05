@@ -2,11 +2,11 @@ require "digest/sha1"
 
 class User
   include Mongoid::Document
-  field :login,           :type => String
-  field :hashed_password, :type => String
-  field :email,           :type => String
-  field :salt,            :type => String
-  field :created_at,      :type => DateTime
+  include Mongoid::Timestamps
+  field :login
+  field :hashed_password
+  field :email
+  field :salt
   attr_protected :hashed_password, :salt
   
   validates_length_of :login,    :mininum => 3, :maximum => 20

@@ -34,7 +34,7 @@ class LovsController < ApplicationController
   end
   
   def destroy
-    lov = Lov.find(params[:id]).destroy
+    Lov.find(params[:id]).destroy
     flash[:info] = "Ieraksts veiksmīgi dzēsts"
     redirect_to :action => :index
   end

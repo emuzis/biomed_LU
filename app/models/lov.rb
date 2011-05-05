@@ -1,8 +1,8 @@
 class Lov
   include Mongoid::Document
   include Mongoid::Search
-  field :name,           :type => String
-  field :values,         :type => Array
+  field :name
+  field :values
   
   validates_uniqueness_of :name
   validates_presence_of :name, :values

@@ -6,13 +6,22 @@ lv:
           empty: "nedrīkst būt tukšs/-i"
           blank: "nedrīkst būt tukšs/-i"
           taken: "nedrīkst atkārtoties"
+          not_a_number: "nav skaitlis"
     attributes:
       lov:
         name: "Nosaukums"
         values: "Vērtības"
       people_attribute_group:
         name: "Nosaukums"
+      person:
+        date_of_birth: "Dzimšanas datums"
+        first_name: "Vārds"
+        last_name: "Uzvārds"
+        social_number: "Personas kods"
+        diagnosed_at: "Diagnoze uzstādīta"
+        age_at_diagnosis: "Vecums uzstādot diagnozi"
 
   support:
     array:
       two_words_connector: " un "
+      words_connector: ", "
