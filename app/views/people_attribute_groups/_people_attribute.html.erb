@@ -1,5 +1,5 @@
 <%= fields_for "people_attribute_group[people_attributes_attributes][#{people_attribute.id||timestamp}]", people_attribute do |ff| %>
-  <div class="form_field">
+  <div class="form_field countable">
     <%= ff.hidden_field :id unless people_attribute.new_record? %>
     <%= ff.label :name, "Atribūts<span class='required'>*</span>".html_safe %>
     <%= ff.text_field :name, :class => "attribute_name" %>

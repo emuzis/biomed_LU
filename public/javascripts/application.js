@@ -9,7 +9,7 @@ $(document).ready(function(){
   
   $("#sortable").sortable({
     update : function () {
-      $(".form_field").each(function(index){
+      $(".countable").each(function(index){
         $(this).find(".order").val(index);
       });
     }

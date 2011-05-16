@@ -19,10 +19,15 @@ class Person
   accepts_nested_attributes_for :used_people_attribute_groups,
     :reject_if => lambda {|a| a[:alternate_name].blank? }, :allow_destroy => true
   
-  search_in :first_name, :last_name, { :allow_empty_search => true }
+  search_in :first_name, :last_name, { :people_attribute_values => [:label, :value] },
+  { :allow_empty_search => true, :match => :any }
   
   def ordered_attribute_groups
     used_people_attribute_groups.sort!{ |a,b| (a.order||0) <=> (b.order||0) }
+  end
+  
+  def people_attribute_values
+    used_people_attribute_groups.map{|p|p.people_attribute_values}.flatten
   end
   
   private

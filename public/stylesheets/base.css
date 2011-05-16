@@ -253,3 +253,14 @@ span.required {
 input.date {
   width: 70px;
 }
+.group_attributes {
+  margin-top: 25px;
+  margin-left: 30px;
+}
+.attribute_group {
+  background: #ECECEC;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 550px;
+  border-radius: 8px 8px 8px 8px;
+}

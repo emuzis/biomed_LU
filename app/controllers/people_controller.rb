@@ -51,6 +51,7 @@ class PeopleController < ApplicationController
       :order => Time.now.to_i,
       :people_attribute_group_id => people_attribute_group.id
     )
+    used_people_attribute_group.build_attribute_values(people_attribute_group)
     render :partial => "used_people_attribute_group", :object => used_people_attribute_group
   end
   
