@@ -214,6 +214,7 @@ div.form_field {
 }
 div.form_field input {
   height: 12px;
+  margin-left:0;
 }
 div.form_field label {
   padding: 7px;

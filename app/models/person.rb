@@ -4,6 +4,7 @@ class Person
   include Mongoid::Search
   field :first_name
   field :last_name
+  field :full_name
   field :date_of_birth
   field :diagnosed_at
   field :age_at_diagnosis
@@ -14,6 +15,8 @@ class Person
   validate :validate_date_correctivness, :validate_numericality
   validates_uniqueness_of :social_number
   validates_presence_of :first_name, :last_name, :date_of_birth, :social_number
+  
+  before_save :add_full_name
   
   embeds_many :used_people_attribute_groups, :dependent => :destroy
   accepts_nested_attributes_for :used_people_attribute_groups,
@@ -31,6 +34,10 @@ class Person
   end
   
   private
+  
+  def add_full_name
+    self.full_name = "#{first_name} #{last_name}"
+  end
   
   def validate_date_correctivness
     if (!date_of_birth.blank? && (Date.parse(date_of_birth) rescue ArgumentError) == ArgumentError)

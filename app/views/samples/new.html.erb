@@ -15,6 +15,10 @@
     <%= f.label :alternate_code, "Papildus kods" %>
     <%= f.text_field :alternate_code %>
   </div>
+  <div class="form_field">
+    <%= f.label :person_name, "Persona" %>
+    <%= f.text_field :person_name, :value => f.object.person.try(:full_name) %>
+  </div>
 
   <div class="attribute_groups" id="sortable">
     <% @sample.ordered_attribute_groups.each do |o| %>
