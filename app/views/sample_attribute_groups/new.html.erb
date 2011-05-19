@@ -11,13 +11,13 @@
     <%= f.text_field :name %>
   </div>
   <div class="attribute_groups" id="sortable">
-    <% @group.ordered_specimen_attributes.each do |o| %>
-      <%= render :partial => "specimen_attribute", :object => o %>
+    <% @group.ordered_sample_attributes.each do |o| %>
+      <%= render :partial => "sample_attribute", :object => o %>
     <% end %>
   </div>
   <%= link_to "Pievienot jaunu atribūtu", "#", :class => "button pill add_new_attribute", :controller => "#{controller_name}" %>
   <div class="form_actions">
     <%= f.submit "Sablagāt", :class => "button" %>
-    <%= link_to "Atpakaļ", specimen_attribute_groups_path, :class => "button" %>
+    <%= link_to "Atpakaļ", sample_attribute_groups_path, :class => "button" %>
   </div>
 <% end %>

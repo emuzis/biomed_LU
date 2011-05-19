@@ -14,9 +14,9 @@
       <%= link_to "Iziet", logout_path, :id => "logout_link" %>
       <br class="clear"/>
       <div id="tabs" class="button-group">
-        <% [{:name => "Paraugi", :link => root_path, :controller => "specimens"},
+        <% [{:name => "Paraugi", :link => root_path, :controller => "samples"},
             {:name => "Personas", :link => people_path, :controller => "people"},
-            {:name => "Paraugu datu konfigurācija", :link => specimen_attribute_groups_path, :controller => "specimen_attribute_groups"},
+            {:name => "Paraugu datu konfigurācija", :link => sample_attribute_groups_path, :controller => "sample_attribute_groups"},
             {:name => "Personu datu konfigurācija", :link => people_attribute_groups_path, :controller => "people_attribute_groups"},
             {:name => "Vērtību saraksti", :link => lovs_path, :controller => "lovs"}].each do |h| %>
           <%= link_to h[:name], h[:link], :class => "pill button #{"active" if controller_name == h[:controller]}" %>

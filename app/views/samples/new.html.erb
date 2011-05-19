@@ -1,0 +1,33 @@
+<% groups = SampleAttributeGroup.order_by(["name","asc"]).map{|g|[g.name,g.id]}.insert(0,[nil,nil]) %>
+<h2>Paraugs</h2>
+<%= render_flash_messages %>
+<%= form_for @sample do |f| %>
+  <% unless f.object.errors.empty? %>
+    <div class="errors">
+      <%= custom_error_messages_for([f.object]) %>
+    </div>
+  <% end %>
+  <div class="form_field">
+    <%= f.label :code, "Kods<span class='required'>*</span>".html_safe %>
+    <%= f.text_field :code %>
+  </div>
+  <div class="form_field">
+    <%= f.label :alternate_code, "Papildus kods" %>
+    <%= f.text_field :alternate_code %>
+  </div>
+
+  <div class="attribute_groups" id="sortable">
+    <% @sample.ordered_attribute_groups.each do |o| %>
+      <%= render :partial => "used_sample_attribute_group", :object => o %>
+    <% end %>
+  </div>
+  <div class="form_field">
+    <%= label_tag :data_groups, "Datu grupas" %>
+    <%= select_tag :data_groups, options_for_select(groups) %>
+    <%= link_to "Pievienot", "#", :class => "button pill add_new_group", :controller => controller_name %>
+  </div>
+  <div class="form_actions">
+    <%= f.submit "Sablagāt", :class => "button" %>
+    <%= link_to "Atpakaļ", samples_path, :class => "button" %>
+  </div>
+<% end %>

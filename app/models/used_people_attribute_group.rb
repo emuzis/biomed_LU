@@ -13,7 +13,7 @@ class UsedPeopleAttributeGroup
   
   def build_attribute_values(group)
     group.people_attributes.each do |attr|
-      people_attribute_values.build(:label => attr.name)
+      people_attribute_values.build(:label => attr.name, :data_type => attr.data_type, :lov_id => attr.lov_id)
     end
   end
   

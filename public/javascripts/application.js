@@ -111,6 +111,7 @@ function add_new_group_handler(){
         success: function(data) {
           $(".attribute_groups").append(data);
           $("#data_groups").val("");
+          qtip_handler();
         }
       });
     }

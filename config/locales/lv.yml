@@ -13,6 +13,8 @@ lv:
         values: "Vērtības"
       people_attribute_group:
         name: "Nosaukums"
+      sample:
+        code: "Kods"
       person:
         date_of_birth: "Dzimšanas datums"
         first_name: "Vārds"

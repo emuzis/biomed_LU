@@ -1,4 +1,4 @@
-class SpecimenAttribute
+class SampleAttribute
   include Mongoid::Document
   include Mongoid::Timestamps
   field :name
@@ -7,7 +7,7 @@ class SpecimenAttribute
   field :lov_id
   
   belongs_to :lov
-  embedded_in :specimen_attribute_group
+  embedded_in :sample_attribute_group
   
   DATA_TYPES = [
     { :value => "string",  :text => "Teksts",   :method => :value_string },

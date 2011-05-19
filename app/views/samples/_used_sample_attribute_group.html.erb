@@ -1,15 +1,15 @@
-<%= fields_for "person[used_people_attribute_groups_attributes][#{used_people_attribute_group.id||timestamp}]",
-  used_people_attribute_group do |ff| %>
+<%= fields_for "sample[used_sample_attribute_groups_attributes][#{used_sample_attribute_group.id||timestamp}]",
+  used_sample_attribute_group do |ff| %>
   <div class="form_field countable attribute_group">
-    <%= ff.hidden_field :id unless used_people_attribute_group.new_record? %>
-    <%= ff.hidden_field :people_attribute_group_id %>
+    <%= ff.hidden_field :id unless used_sample_attribute_group.new_record? %>
+    <%= ff.hidden_field :sample_attribute_group_id %>
     <%= ff.hidden_field :_destroy, :class => "destroy_flag" %>
     <%= ff.hidden_field :order, :class => "order" %>
     <%= ff.label :alternate_name, "Grupas nosaukums<span class='required'>*</span>".html_safe %>
     <%= ff.text_field :alternate_name %>
     <%= link_to "Dzēst", "#", :class => "button icon remove danger remove_record" %>
     <div class="group_attributes">
-      <% ff.fields_for :people_attribute_values do |fff| %>
+      <% ff.fields_for :sample_attribute_values do |fff| %>
         <div class="form_field">
           <%= fff.hidden_field :id unless fff.object.new_record? %>
           <%= fff.hidden_field :label %>

@@ -1,6 +1,6 @@
 Biomed::Application.routes.draw do
   
-  root :to => "specimens#index"
+  root :to => "samples#index"
 
   get  :login, :to => "sessions#new"
   post :login, :to => "sessions#login"
@@ -12,7 +12,7 @@ Biomed::Application.routes.draw do
       get   :new_attribute
     end
   end
-  resources :specimen_attribute_groups, :except => [:show] do
+  resources :sample_attribute_groups, :except => [:show] do
     collection do 
       match :search
       get   :new_attribute
@@ -24,7 +24,12 @@ Biomed::Application.routes.draw do
       get   :new_group
     end
   end
-  resources :specimens, :except => [:show]
+  resources :samples, :except => [:show] do
+    collection do 
+      match :search
+      get   :new_group
+    end
+  end
   resources :lovs, :except => [:show] do
     collection do 
       match :search

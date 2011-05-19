@@ -1,4 +1,4 @@
-class PeopleAttributeValue
+class SampleAttributeValue
   include Mongoid::Document
   include Mongoid::Timestamps
   field :value
@@ -6,6 +6,6 @@ class PeopleAttributeValue
   field :data_type
   field :lov_id
   
-  embedded_in :used_people_attribute_group
+  embedded_in :used_sample_attribute_group
   
 end
